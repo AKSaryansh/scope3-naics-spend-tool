@@ -1,0 +1,10 @@
+[server]
+# Increase if your purchases / reference workbooks are large
+maxUploadSize = 400
+
+# Recommended for deployment
+headless = true
+enableCORS = false
+
+[browser]
+gatherUsageStats = false

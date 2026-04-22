@@ -1,0 +1,12 @@
+.gcloudignore
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.xlsx
+*.xls
+*.csv
+*.parquet
+*.zip
+.DS_Store
