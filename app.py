@@ -444,7 +444,10 @@ def main():
 
     # --- Reference workbook ---
     st.sidebar.header("Reference workbook")
-    ref_upload = st.sidebar.file_uploader("Upload reference Excel (optional)", type=["xlsx"])
+    ref_upload = st.sidebar.file_uploader(
+        "Upload reference Excel (required unless SCOPE3_REF_XLSX_PATH is set)",
+        type=["xlsx"],
+    )
     if ref_upload is not None:
         ref_path = ref_upload
         ref_label = "(uploaded)"
@@ -454,9 +457,10 @@ def main():
 
     if ref_path is None:
         st.error(
-            "No reference workbook found. Upload the reference Excel in the sidebar, "
-            f"or set env var {REF_ENV_VAR} to a readable path in this environment."
+            "Reference workbook is required in this hosted app. "
+            "Upload it from the left sidebar under 'Reference workbook'."
         )
+        st.stop()
         st.stop()
     try:
         ref = load_reference(ref_path)
